@@ -4,14 +4,18 @@ provider "grackdb" {
 
 data "grackdb_current_user" "me" {}
 
+resource "grackdb_user" "tf_user" {
+    username = "Terraform User"
+}
+
 output "id" {
-  value = data.grackdb_current_user.me.id
+  value = grackdb_user.tf_user.id
 }
 
 output "username" {
-  value = data.grackdb_current_user.me.username
+  value = grackdb_user.tf_user.username
 }
 
 output "avatar_url" {
-  value = data.grackdb_current_user.me.avatar_url
+  value = grackdb_user.tf_user.avatar_url
 }

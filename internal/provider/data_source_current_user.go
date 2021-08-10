@@ -31,7 +31,6 @@ func dataSourceCurrentUser() *schema.Resource {
 			"avatar_url": {
 				Description: "URL for this user's avatar.",
 				Type:        schema.TypeString,
-				Optional:    true,
 				Computed:    true,
 			},
 		},
@@ -45,7 +44,6 @@ type currentUserResp struct {
 }
 
 func dataSourceCurrentUserRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
-	// use the meta value to retrieve your client from the provider configure method
 	client := meta.(*apiClient)
 
 	reqBody, err := json.Marshal(map[string]interface{}{

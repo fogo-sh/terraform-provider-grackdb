@@ -44,7 +44,7 @@ func New(version string) func() *schema.Provider {
 				"grackdb_current_user": dataSourceCurrentUser(),
 			},
 			ResourcesMap: map[string]*schema.Resource{
-				"scaffolding_resource": resourceScaffolding(),
+				"grackdb_user": resourceUser(),
 			},
 		}
 
